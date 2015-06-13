@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="GymDatabase" Class="WorkSchedulesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Model\GymDatabase.mdf;Integrated Security=True" SettingsObjectName="Thesis.Properties.Settings" SettingsPropertyName="GymDatabaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.WorkSchedules" Member="WorkSchedules">
+    <Type Name="WorkSchedule">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="WorkerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Shift" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="WorkingTime" Type="System.String" DbType="NChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="dbo.AddWorkSchedule" Method="AddWorkSchedule">
+    <Parameter Name="WorkerId" Parameter="workerId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Shift" Parameter="shift" Type="System.Int32" DbType="Int" />
+    <Parameter Name="WorkingTime" Parameter="workingTime" Type="System.String" DbType="NChar(40)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeleteWorkSchedule" Method="DeleteWorkSchedule">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

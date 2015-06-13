@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="GymDatabase" Class="ClientsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Model\GymDatabase.mdf;Integrated Security=True" SettingsObjectName="Thesis.Properties.Settings" SettingsPropertyName="GymDatabaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Clients" Member="Clients">
+    <Type Name="Client">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="SubFrom" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="SubTo" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="SubId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AddedAt" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="NumberRenewings" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="CoachId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Bonus" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="dbo.AddClient" Method="AddClient">
+    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="NChar(20)" />
+    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="NChar(20)" />
+    <Parameter Name="SubFrom" Parameter="subFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="SubTo" Parameter="subTo" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="SubId" Parameter="subId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AddedAt" Parameter="addedAt" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="NumberRenewings" Parameter="numberRenewings" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NChar(30)" />
+    <Parameter Name="PhoneNumber" Parameter="phoneNumber" Type="System.String" DbType="NChar(20)" />
+    <Parameter Name="CoachId" Parameter="coachId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Bonus" Parameter="bonus" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeleteClient" Method="DeleteClient">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

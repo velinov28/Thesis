@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="GymDatabase" Class="InventoryDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Model\GymDatabase.mdf;Integrated Security=True" SettingsObjectName="Thesis.Properties.Settings" SettingsPropertyName="GymDatabaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Inventory" Member="Inventories">
+    <Type Name="Inventory">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="Brand" Type="System.String" DbType="NChar(40)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="DeliveryDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NumberOfRepairs" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ExpirationDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FutureDateChange" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DeliveryPrice" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="ProviderId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.AddInventory" Method="AddInventory">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NChar(50)" />
+    <Parameter Name="Type" Parameter="type" Type="System.String" DbType="NChar(50)" />
+    <Parameter Name="Brand" Parameter="brand" Type="System.String" DbType="NChar(40)" />
+    <Parameter Name="Amount" Parameter="amount" Type="System.String" DbType="NChar(20)" />
+    <Parameter Name="DeliveryDate" Parameter="deliveryDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="NumberOfRepairs" Parameter="numberOfRepairs" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ExpirationDate" Parameter="expirationDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="FutureDateChange" Parameter="futureDateChange" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="DeliveryPrice" Parameter="deliveryPrice" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="ProviderId" Parameter="providerId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeleteInventory" Method="DeleteInventory">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

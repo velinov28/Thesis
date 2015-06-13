@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="GymDatabase" Class="WorkoutsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Model\GymDatabase.mdf;Integrated Security=True" SettingsObjectName="Thesis.Properties.Settings" SettingsPropertyName="GymDatabaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Workouts" Member="Workouts">
+    <Type Name="Workout">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CoachId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ClientId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="StartTime" AutoSync="Never" Type="System.String" DbType="NChar(10)" IsDbGenerated="true" CanBeNull="true" />
+      <Column Name="EndTime" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.AddWorkout" Method="AddWorkout">
+    <Parameter Name="CoachId" Parameter="coachId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ClientId" Parameter="clientId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="StartTime" Parameter="startTime" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="EndTime" Parameter="endTime" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="Price" Parameter="price" Type="System.Decimal" DbType="Money" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeleteWorkout" Method="DeleteWorkout">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="GymDatabase" Class="SuppliesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Model\GymDatabase.mdf;Integrated Security=True" SettingsObjectName="Thesis.Properties.Settings" SettingsPropertyName="GymDatabaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Supplies" Member="Supplies">
+    <Type Name="Supply">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="ProviderId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DeliveryPrice" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="SalePrice" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Amount" Type="System.String" DbType="NChar(40) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="dbo.AddSupply" Method="AddSupply">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NChar(40)" />
+    <Parameter Name="ProviderId" Parameter="providerId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="DeliveryPrice" Parameter="deliveryPrice" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="SalePrice" Parameter="salePrice" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Amount" Parameter="amount" Type="System.String" DbType="NChar(40)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeleteSupply" Method="DeleteSupply">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

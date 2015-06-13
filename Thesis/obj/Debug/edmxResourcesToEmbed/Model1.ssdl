@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GymDatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="GymDatabaseModelStoreContainer">
+    <EntitySet Name="Clients" EntityType="GymDatabaseModel.Store.Clients" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Expenses" EntityType="GymDatabaseModel.Store.Expenses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Inventory" EntityType="GymDatabaseModel.Store.Inventory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Proceeds" EntityType="GymDatabaseModel.Store.Proceeds" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Products" EntityType="GymDatabaseModel.Store.Products" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Providers" EntityType="GymDatabaseModel.Store.Providers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Salaries" EntityType="GymDatabaseModel.Store.Salaries" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Subscriptions" EntityType="GymDatabaseModel.Store.Subscriptions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Supplies" EntityType="GymDatabaseModel.Store.Supplies" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Workers" EntityType="GymDatabaseModel.Store.Workers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Workouts" EntityType="GymDatabaseModel.Store.Workouts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="WorkSchedules" EntityType="GymDatabaseModel.Store.WorkSchedules" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ClientId" Association="GymDatabaseModel.Store.ClientId">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="Proceeds" EntitySet="Proceeds" />
+    </AssociationSet>
+    <AssociationSet Name="ClientId1" Association="GymDatabaseModel.Store.ClientId1">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="Workouts" EntitySet="Workouts" />
+    </AssociationSet>
+    <AssociationSet Name="CoachId" Association="GymDatabaseModel.Store.CoachId">
+      <End Role="Workers" EntitySet="Workers" />
+      <End Role="Clients" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="CoachId1" Association="GymDatabaseModel.Store.CoachId1">
+      <End Role="Workers" EntitySet="Workers" />
+      <End Role="Workouts" EntitySet="Workouts" />
+    </AssociationSet>
+    <AssociationSet Name="ProviderId" Association="GymDatabaseModel.Store.ProviderId">
+      <End Role="Providers" EntitySet="Providers" />
+      <End Role="Supplies" EntitySet="Supplies" />
+    </AssociationSet>
+    <AssociationSet Name="ProviderId1" Association="GymDatabaseModel.Store.ProviderId1">
+      <End Role="Providers" EntitySet="Providers" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="ProviderId2" Association="GymDatabaseModel.Store.ProviderId2">
+      <End Role="Providers" EntitySet="Providers" />
+      <End Role="Inventory" EntitySet="Inventory" />
+    </AssociationSet>
+    <AssociationSet Name="SalaryId" Association="GymDatabaseModel.Store.SalaryId">
+      <End Role="Salaries" EntitySet="Salaries" />
+      <End Role="Expenses" EntitySet="Expenses" />
+    </AssociationSet>
+    <AssociationSet Name="SubId" Association="GymDatabaseModel.Store.SubId">
+      <End Role="Subscriptions" EntitySet="Subscriptions" />
+      <End Role="Clients" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="SupplyId" Association="GymDatabaseModel.Store.SupplyId">
+      <End Role="Supplies" EntitySet="Supplies" />
+      <End Role="Expenses" EntitySet="Expenses" />
+    </AssociationSet>
+    <AssociationSet Name="WorkerId" Association="GymDatabaseModel.Store.WorkerId">
+      <End Role="Workers" EntitySet="Workers" />
+      <End Role="Salaries" EntitySet="Salaries" />
+    </AssociationSet>
+    <AssociationSet Name="WorkerId1" Association="GymDatabaseModel.Store.WorkerId1">
+      <End Role="Workers" EntitySet="Workers" />
+      <End Role="WorkSchedules" EntitySet="WorkSchedules" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="nchar" Nullable="false" MaxLength="20" />
+    <Property Name="LastName" Type="nchar" Nullable="false" MaxLength="20" />
+    <Property Name="SubFrom" Type="nchar" Nullable="false" MaxLength="20" />
+    <Property Name="SubTo" Type="nchar" Nullable="false" MaxLength="20" />
+    <Property Name="SubId" Type="int" />
+    <Property Name="AddedAt" Type="nchar" Nullable="false" MaxLength="20" />
+    <Property Name="NumberRenewings" Type="int" Nullable="false" />
+    <Property Name="Email" Type="nchar" MaxLength="30" />
+    <Property Name="PhoneNumber" Type="nchar" MaxLength="20" />
+    <Property Name="CoachId" Type="int" />
+    <Property Name="Bonus" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Expenses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Cost" Type="money" Nullable="false" />
+    <Property Name="Date" Type="nchar" Nullable="false" MaxLength="20" />
+    <Property Name="SupplyId" Type="int" />
+    <Property Name="SalaryId" Type="int" />
+    <Property Name="Description" Type="nchar" Nullable="false" MaxLength="100" />
+    <Property Name="Amount" Type="nchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Inventory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nchar" Nullable="false" MaxLength="50" />
+    <Property Name="Type" Type="nchar" MaxLength="50" />
+    <Property Name="Brand" Type="nchar" MaxLength="40" />
+    <Property Name="Amount" Type="nchar" Nullable="false" MaxLength="20" />
+    <Property Name="DeliveryDate" Type="nchar" MaxLength="30" />
+    <Property Name="NumberOfRepairs" Type="nchar" MaxLength="20" />
+    <Property Name="ExpirationDate" Type="nchar" MaxLength="30" />
+    <Property Name="FutureDateChange" Type="nchar" MaxLength="30" />
+    <Property Name="DeliveryPrice" Type="money" Nullable="false" />
+    <Property Name="ProviderId" Type="int" />
+  </EntityType>
+  <EntityType Name="Proceeds">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Cost" Type="money" Nullable="false" />
+    <Property Name="Date" Type="nchar" Nullable="false" MaxLength="20" />
+    <Property Name="ClientId" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nchar" Nullable="false" MaxLength="100" />
+    <Property Name="Amount" Type="nchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nchar" Nullable="false" MaxLength="40" />
+    <Property Name="Amount" Type="nchar" Nullable="false" MaxLength="40" />
+    <Property Name="Barcode" Type="nchar" MaxLength="50" />
+    <Property Name="Group" Type="nchar" MaxLength="40" />
+    <Property Name="LastDeliveryDate" Type="nchar" Nullable="false" MaxLength="20" />
+    <Property Name="FutureDeliveryDate" Type="nchar" MaxLength="20" />
+    <Property Name="SalePrice" Type="money" Nullable="false" />
+    <Property Name="ProviderId" Type="int" />
+  </EntityType>
+  <EntityType Name="Providers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="nchar" Nullable="false" MaxLength="40" />
+    <Property Name="Address" Type="nchar" Nullable="false" MaxLength="50" />
+    <Property Name="Email" Type="nchar" Nullable="false" MaxLength="40" />
+    <Property Name="PhoneNumber" Type="nchar" Nullable="false" MaxLength="30" />
+    <Property Name="AccountablePersonName" Type="nchar" MaxLength="60" />
+    <Property Name="AccountablePersonPIN" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Salaries">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="WorkerId" Type="int" Nullable="false" />
+    <Property Name="Date" Type="nchar" Nullable="false" MaxLength="20" />
+    <Property Name="Salary" Type="money" Nullable="false" />
+    <Property Name="Bonus" Type="money" />
+  </EntityType>
+  <EntityType Name="Subscriptions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nchar" Nullable="false" MaxLength="30" />
+    <Property Name="Price" Type="money" Nullable="false" />
+    <Property Name="Duration_months" Type="int" Nullable="false" />
+    <Property Name="Visits" Type="int" />
+  </EntityType>
+  <EntityType Name="Supplies">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nchar" Nullable="false" MaxLength="40" />
+    <Property Name="ProviderId" Type="int" Nullable="false" />
+    <Property Name="Date" Type="nchar" Nullable="false" MaxLength="20" />
+    <Property Name="DeliveryPrice" Type="money" Nullable="false" />
+    <Property Name="SalePrice" Type="money" />
+    <Property Name="Amount" Type="nchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Workers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="nchar" Nullable="false" MaxLength="20" />
+    <Property Name="LastName" Type="nchar" Nullable="false" MaxLength="20" />
+    <Property Name="PIN" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="FirstWorkDayDate" Type="nchar" Nullable="false" MaxLength="20" />
+    <Property Name="MonthSalary" Type="money" Nullable="false" />
+    <Property Name="Role" Type="int" Nullable="false" />
+    <Property Name="Email" Type="nchar" Nullable="false" MaxLength="40" />
+    <Property Name="PhoneNumber" Type="nchar" Nullable="false" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Workouts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CoachId" Type="int" />
+    <Property Name="ClientId" Type="int" Nullable="false" />
+    <Property Name="Date" Type="nchar" Nullable="false" MaxLength="20" />
+    <Property Name="StartTime" Type="nchar" MaxLength="20" />
+    <Property Name="EndTime" Type="nchar" MaxLength="20" />
+    <Property Name="Price" Type="money" />
+  </EntityType>
+  <EntityType Name="WorkSchedules">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="WorkerId" Type="int" Nullable="false" />
+    <Property Name="Shift" Type="int" Nullable="false" />
+    <Property Name="WorkingTime" Type="nchar" Nullable="false" MaxLength="40" />
+    <Property Name="Date" Type="nchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <Association Name="ClientId">
+    <End Role="Clients" Type="GymDatabaseModel.Store.Clients" Multiplicity="1" />
+    <End Role="Proceeds" Type="GymDatabaseModel.Store.Proceeds" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Proceeds">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClientId1">
+    <End Role="Clients" Type="GymDatabaseModel.Store.Clients" Multiplicity="1" />
+    <End Role="Workouts" Type="GymDatabaseModel.Store.Workouts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Workouts">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CoachId">
+    <End Role="Workers" Type="GymDatabaseModel.Store.Workers" Multiplicity="0..1" />
+    <End Role="Clients" Type="GymDatabaseModel.Store.Clients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clients">
+        <PropertyRef Name="CoachId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CoachId1">
+    <End Role="Workers" Type="GymDatabaseModel.Store.Workers" Multiplicity="0..1" />
+    <End Role="Workouts" Type="GymDatabaseModel.Store.Workouts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Workouts">
+        <PropertyRef Name="CoachId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProviderId">
+    <End Role="Providers" Type="GymDatabaseModel.Store.Providers" Multiplicity="1" />
+    <End Role="Supplies" Type="GymDatabaseModel.Store.Supplies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Providers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Supplies">
+        <PropertyRef Name="ProviderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProviderId1">
+    <End Role="Providers" Type="GymDatabaseModel.Store.Providers" Multiplicity="0..1" />
+    <End Role="Products" Type="GymDatabaseModel.Store.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Providers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="ProviderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProviderId2">
+    <End Role="Providers" Type="GymDatabaseModel.Store.Providers" Multiplicity="0..1" />
+    <End Role="Inventory" Type="GymDatabaseModel.Store.Inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Providers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Inventory">
+        <PropertyRef Name="ProviderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SalaryId">
+    <End Role="Salaries" Type="GymDatabaseModel.Store.Salaries" Multiplicity="0..1" />
+    <End Role="Expenses" Type="GymDatabaseModel.Store.Expenses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Salaries">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Expenses">
+        <PropertyRef Name="SalaryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SubId">
+    <End Role="Subscriptions" Type="GymDatabaseModel.Store.Subscriptions" Multiplicity="0..1" />
+    <End Role="Clients" Type="GymDatabaseModel.Store.Clients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscriptions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clients">
+        <PropertyRef Name="SubId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SupplyId">
+    <End Role="Supplies" Type="GymDatabaseModel.Store.Supplies" Multiplicity="0..1" />
+    <End Role="Expenses" Type="GymDatabaseModel.Store.Expenses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplies">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Expenses">
+        <PropertyRef Name="SupplyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="WorkerId">
+    <End Role="Workers" Type="GymDatabaseModel.Store.Workers" Multiplicity="1" />
+    <End Role="Salaries" Type="GymDatabaseModel.Store.Salaries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Salaries">
+        <PropertyRef Name="WorkerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="WorkerId1">
+    <End Role="Workers" Type="GymDatabaseModel.Store.Workers" Multiplicity="1" />
+    <End Role="WorkSchedules" Type="GymDatabaseModel.Store.WorkSchedules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WorkSchedules">
+        <PropertyRef Name="WorkerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

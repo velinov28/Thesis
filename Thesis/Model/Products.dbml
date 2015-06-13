@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="GymDatabase" Class="ProductsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Model\GymDatabase.mdf;Integrated Security=True" SettingsObjectName="Thesis.Properties.Settings" SettingsPropertyName="GymDatabaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Products" Member="Products">
+    <Type Name="Product">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.String" DbType="NChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Barcode" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="Category" Type="System.String" DbType="NChar(40)" CanBeNull="true" />
+      <Column Name="LastDeliveryDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="FutureDeliveryDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="SalePrice" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="ProviderId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.AddProduct" Method="AddProduct">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NChar(40)" />
+    <Parameter Name="Amount" Parameter="amount" Type="System.String" DbType="NChar(40)" />
+    <Parameter Name="Barcode" Parameter="barcode" Type="System.String" DbType="NChar(50)" />
+    <Parameter Name="Category" Parameter="category" Type="System.String" DbType="NChar(40)" />
+    <Parameter Name="LastDeliveryDate" Parameter="lastDeliveryDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="FutureDeliveryDate" Parameter="futureDeliveryDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="SalePrice" Parameter="salePrice" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="ProviderId" Parameter="providerId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeleteProduct" Method="DeleteProduct">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
