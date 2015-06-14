@@ -57,120 +57,124 @@ namespace Thesis.View
         private void btnDelete_Click(object sender, EventArgs e)
         {
             bool result;
-            switch (choice)
+            if (MessageBox.Show("Сигурни ли сте, че искате да изтриете този запис?",
+                        "Въпрос", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                case TableName.CLIENTS:
-                    result = RemoveClient();
-                    if (result)
-                        MessageBox.Show("Успешно изтриване на клиент.",
-                            "Успешна операция", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    else
-                        MessageBox.Show("Неуспешно изтриване на клиент.",
-                            "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
+                switch (choice)
+                {
+                    case TableName.CLIENTS:
+                        result = RemoveClient();
+                        if (result)
+                            MessageBox.Show("Успешно изтриване на клиент.",
+                                "Успешна операция", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show("Неуспешно изтриване на клиент.",
+                                "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
 
-                case TableName.EXPENSES:
-                    result = RemoveExpense();
-                    if (result)
-                        MessageBox.Show("Успешно изтриване на разход.",
-                            "Успешна операция", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    else
-                        MessageBox.Show("Неуспешно изтриване на разход.",
-                            "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
-                    
-                case TableName.INVENTORY:
-                     result = RemoveInventory();
-                    if (result)
-                        MessageBox.Show("Успешно изтриване на оборудване.",
-                            "Успешна операция", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    else
-                        MessageBox.Show("Неуспешно изтриване на оборудване.",
-                            "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
-                case TableName.PROCEEDS:
-                    result = RemoveProceed();
-                    if (result)
-                        MessageBox.Show("Успешно изтриване на приход.",
-                            "Успешна операция", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    else
-                        MessageBox.Show("Неуспешно изтриване на приход.",
-                            "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
-                case TableName.PRODUCTS:
-                    result = RemoveProduct();
-                    if (result)
-                        MessageBox.Show("Успешно изтриване на продукт.",
-                            "Успешна операция", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    else
-                        MessageBox.Show("Неуспешно изтриване на продукт.",
-                            "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
-                case TableName.PROVIDERS:
-                    result = RemoveProvider();
-                    if (result)
-                        MessageBox.Show("Успешно изтриване на доставчик.",
-                            "Успешна операция", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    else
-                        MessageBox.Show("Неуспешно изтриване на доставчик.",
-                            "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
-                case TableName.SALARIES:
-                    result = RemoveSalary();
-                    if (result)
-                        MessageBox.Show("Успешно изтриване на заплата.",
-                            "Успешна операция", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    else
-                        MessageBox.Show("Неуспешно изтриване на заплата.",
-                            "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
-                case TableName.SUBSCRIPTIONS:
-                    result = RemoveSubscription();
-                    if (result)
-                        MessageBox.Show("Успешно изтриване на абонамент.",
-                            "Успешна операция", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    else
-                        MessageBox.Show("Неуспешно изтриване на абонамент.",
-                            "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
-                case TableName.SUPPLIES:
-                    result = RemoveSupply();
-                    if (result)
-                        MessageBox.Show("Успешно изтриване на доставка.",
-                            "Успешна операция", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    else
-                        MessageBox.Show("Неуспешно изтриване на доставка.",
-                            "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
-                case TableName.WORKERS:
-                    result = RemoveWorker();
-                    if (result)
-                        MessageBox.Show("Успешно изтриване на служител.",
-                            "Успешна операция", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    else
-                        MessageBox.Show("Неуспешно изтриване на служител.",
-                            "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
-                case TableName.WORKOUTS:
-                    result = RemoveWorkout();
-                    if (result)
-                        MessageBox.Show("Успешно изтриване на тренировка.",
-                            "Успешна операция", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    else
-                        MessageBox.Show("Неуспешно изтриване на тренировка.",
-                            "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
-                case TableName.WORKSCHEDULES:
-                    result = RemoveWorkSchedule();
-                    if (result)
-                        MessageBox.Show("Успешно изтриване на смяна.",
-                            "Успешна операция", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    else
-                        MessageBox.Show("Неуспешно изтриване на смяна.",
-                            "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
+                    case TableName.EXPENSES:
+                        result = RemoveExpense();
+                        if (result)
+                            MessageBox.Show("Успешно изтриване на разход.",
+                                "Успешна операция", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show("Неуспешно изтриване на разход.",
+                                "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+
+                    case TableName.INVENTORY:
+                        result = RemoveInventory();
+                        if (result)
+                            MessageBox.Show("Успешно изтриване на оборудване.",
+                                "Успешна операция", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show("Неуспешно изтриване на оборудване.",
+                                "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    case TableName.PROCEEDS:
+                        result = RemoveProceed();
+                        if (result)
+                            MessageBox.Show("Успешно изтриване на приход.",
+                                "Успешна операция", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show("Неуспешно изтриване на приход.",
+                                "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    case TableName.PRODUCTS:
+                        result = RemoveProduct();
+                        if (result)
+                            MessageBox.Show("Успешно изтриване на продукт.",
+                                "Успешна операция", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show("Неуспешно изтриване на продукт.",
+                                "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    case TableName.PROVIDERS:
+                        result = RemoveProvider();
+                        if (result)
+                            MessageBox.Show("Успешно изтриване на доставчик.",
+                                "Успешна операция", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show("Неуспешно изтриване на доставчик.",
+                                "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    case TableName.SALARIES:
+                        result = RemoveSalary();
+                        if (result)
+                            MessageBox.Show("Успешно изтриване на заплата.",
+                                "Успешна операция", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show("Неуспешно изтриване на заплата.",
+                                "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    case TableName.SUBSCRIPTIONS:
+                        result = RemoveSubscription();
+                        if (result)
+                            MessageBox.Show("Успешно изтриване на абонамент.",
+                                "Успешна операция", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show("Неуспешно изтриване на абонамент.",
+                                "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    case TableName.SUPPLIES:
+                        result = RemoveSupply();
+                        if (result)
+                            MessageBox.Show("Успешно изтриване на доставка.",
+                                "Успешна операция", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show("Неуспешно изтриване на доставка.",
+                                "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    case TableName.WORKERS:
+                        result = RemoveWorker();
+                        if (result)
+                            MessageBox.Show("Успешно изтриване на служител.",
+                                "Успешна операция", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show("Неуспешно изтриване на служител.",
+                                "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    case TableName.WORKOUTS:
+                        result = RemoveWorkout();
+                        if (result)
+                            MessageBox.Show("Успешно изтриване на тренировка.",
+                                "Успешна операция", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show("Неуспешно изтриване на тренировка.",
+                                "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    case TableName.WORKSCHEDULES:
+                        result = RemoveWorkSchedule();
+                        if (result)
+                            MessageBox.Show("Успешно изтриване на смяна.",
+                                "Успешна операция", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show("Неуспешно изтриване на смяна.",
+                                "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                }
+                this.Close();
             }
-            this.Close();
         }
        
 

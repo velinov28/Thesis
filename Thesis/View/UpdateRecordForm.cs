@@ -123,58 +123,62 @@ namespace Thesis.View
 
         private void tableBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            try
+            if (MessageBox.Show("Сигурни ли сте, че искате да промените този запис?",
+                        "Въпрос", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                this.Validate();
-                switch (choice)
+                try
                 {
-                    case TableName.CLIENTS:
-                        this.clientsBindingSource.EndEdit();
-                        break;
-                    case TableName.EXPENSES:
-                        this.expensesBindingSource.EndEdit();
-                        break;
-                    case TableName.INVENTORY:
-                        this.inventoryBindingSource.EndEdit();
-                        break;
-                    case TableName.PROCEEDS:
-                        this.proceedsBindingSource.EndEdit();
-                        break;
-                    case TableName.PRODUCTS:
-                        this.productsBindingSource.EndEdit();
-                        break;
-                    case TableName.PROVIDERS:
-                        this.providersBindingSource.EndEdit();
-                        break;
-                    case TableName.SALARIES:
-                        this.salariesBindingSource.EndEdit();
-                        break;
-                    case TableName.SUBSCRIPTIONS:
-                        this.subscriptionsBindingSource.EndEdit();
-                        break;
-                    case TableName.SUPPLIES:
-                        this.suppliesBindingSource.EndEdit();
-                        break;
-                    case TableName.WORKERS:
-                        this.workersBindingSource.EndEdit();
-                        break;
-                    case TableName.WORKOUTS:
-                        this.workoutsBindingSource.EndEdit();
-                        break;
-                    case TableName.WORKSCHEDULES:
-                        this.workSchedulesBindingSource.EndEdit();
-                        break;
+                    this.Validate();
+                    switch (choice)
+                    {
+                        case TableName.CLIENTS:
+                            this.clientsBindingSource.EndEdit();
+                            break;
+                        case TableName.EXPENSES:
+                            this.expensesBindingSource.EndEdit();
+                            break;
+                        case TableName.INVENTORY:
+                            this.inventoryBindingSource.EndEdit();
+                            break;
+                        case TableName.PROCEEDS:
+                            this.proceedsBindingSource.EndEdit();
+                            break;
+                        case TableName.PRODUCTS:
+                            this.productsBindingSource.EndEdit();
+                            break;
+                        case TableName.PROVIDERS:
+                            this.providersBindingSource.EndEdit();
+                            break;
+                        case TableName.SALARIES:
+                            this.salariesBindingSource.EndEdit();
+                            break;
+                        case TableName.SUBSCRIPTIONS:
+                            this.subscriptionsBindingSource.EndEdit();
+                            break;
+                        case TableName.SUPPLIES:
+                            this.suppliesBindingSource.EndEdit();
+                            break;
+                        case TableName.WORKERS:
+                            this.workersBindingSource.EndEdit();
+                            break;
+                        case TableName.WORKOUTS:
+                            this.workoutsBindingSource.EndEdit();
+                            break;
+                        case TableName.WORKSCHEDULES:
+                            this.workSchedulesBindingSource.EndEdit();
+                            break;
+                    }
+                    this.tableAdapterManager.UpdateAll(this.gymDatabaseDataSet);
+                    MessageBox.Show("Успешно обновени данни.", "Успешна операция", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                this.tableAdapterManager.UpdateAll(this.gymDatabaseDataSet);
-                MessageBox.Show("Успешно обновени данни.", "Успешна операция", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
 
-            catch (Exception)
-            {
-                MessageBox.Show("Не е извършена промяна.");
-            }
+                catch (Exception)
+                {
+                    MessageBox.Show("Не е извършена промяна.");
+                }
 
-            this.Close();
+                this.Close();
+            }
         }
 
         private void HideAllGroupBoxes()
