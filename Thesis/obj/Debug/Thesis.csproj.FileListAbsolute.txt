@@ -80,3 +80,7 @@ C:\Users\Stiliyan_lt\Documents\Visual Studio 2012\Projects\Thesis\Thesis\obj\Deb
 C:\Users\Stiliyan_lt\Documents\Visual Studio 2012\Projects\Thesis\Thesis\obj\Debug\Thesis.View.SendEmailForm.resources
 C:\Users\Stiliyan_lt\Documents\Visual Studio 2012\Projects\Thesis\Thesis\obj\Debug\Thesis.View.UpdateRecordForm.resources
 C:\Users\Stiliyan_lt\Documents\Visual Studio 2012\Projects\Thesis\Thesis\obj\Debug\Thesis.View.UpdateSubscriptionForm.resources
+C:\Users\Stiliyan_lt\Documents\GitHub files\Thesis\Thesis\bin\Debug\Thesis.exe.config
+C:\Users\Stiliyan_lt\Documents\GitHub files\Thesis\Thesis\obj\Debug\Thesis.csproj.ResolveComReference.cache
+C:\Users\Stiliyan_lt\Documents\GitHub files\Thesis\Thesis\obj\Debug\Thesis.exe
+C:\Users\Stiliyan_lt\Documents\GitHub files\Thesis\Thesis\obj\Debug\Thesis.pdb
